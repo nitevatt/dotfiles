@@ -17,6 +17,9 @@ M.config = function()
         quit_on_open = true
       }
     },
+    update_focused_file = {
+      update_root = true
+    },
     view = {
       adaptive_size = true
     }
