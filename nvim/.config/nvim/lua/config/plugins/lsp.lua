@@ -1,17 +1,15 @@
-local M = {}
-
-local mason = require("plugins.lsp.mason")
-local mason_lspconfig = require("plugins.lsp.mason_lspconfig")
-
-M.setup = function(use)
-  mason.setup(use)
-  mason_lspconfig.setup(use)
-end
-
+local M = {
+  "williamboman/mason-lspconfig.nvim",
+  dependencies = {
+    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
+    "jose-elias-alvarez/typescript.nvim"
+  }
+}
 
 M.config = function()
-  mason.config()
-  mason_lspconfig.config()
+  require("mason").setup()
+  require("config.plugins.lsp.mason_lspconfig").setup(require("mason-lspconfig"))
 
   local opts = { noremap = true, silent = true }
 

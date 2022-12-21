@@ -1,19 +1,11 @@
 local M = {}
 
-M.setup = function(use)
-  use "jose-elias-alvarez/typescript.nvim"
-end
-
 local group = vim.api.nvim_create_augroup("TSFormatting", {})
 
-M.config = function(capabilities, on_attach)
-  local ok, typescript = pcall(require, "typescript")
+M.setup = function(capabilities, on_attach)
+  local typescript = require("typescript")
 
-  if not ok then
-    return
-  end
-
-  typescript.setup {
+  typescript.setup({
     server = {
       capabilities = capabilities,
       cmd = { "typescript-language-server", "--stdio", "--tsserver-path", "typescript" },
@@ -31,7 +23,7 @@ M.config = function(capabilities, on_attach)
         on_attach(client, bufnr)
       end
     }
-  }
+  })
 end
 
 return M

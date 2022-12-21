@@ -1,38 +1,22 @@
-local M = {}
+local M = {
+  "hrsh7th/nvim-cmp",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
 
-M.setup = function(use)
-  use "onsails/lspkind.nvim"
-
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-vsnip"
-  use "hrsh7th/vim-vsnip"
-end
-
-local function format()
-  local ok, lspkind = pcall(require, "lspkind")
-
-  if not ok then
-    return
-  end
-
-  return lspkind.cmp_format {
-    mode = "symbol_text"
+    "onsails/lspkind.nvim"
   }
-end
+}
 
 M.config = function()
-  local ok, cmp = pcall(require, "cmp")
+  local cmp = require("cmp")
 
-  if not ok then
-    return
-  end
-
-  cmp.setup {
+  cmp.setup({
     formatting = {
-      format = format(),
+      format = require("lspkind").cmp_format({ mode = "symbol_text" }),
     },
     snippet = {
       expand = function(args)
@@ -61,26 +45,22 @@ M.config = function()
       end)
     },
     sources = cmp.config.sources(
+    {
+      { name = "nvim_lsp" },
+    },
+    {
       {
-        { name = "nvim_lsp" },
+        name = "buffer",
+        option = {
+          get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end
+        }
       },
-      {
-        {
-          name = "buffer",
-          option = {
-            get_bufnrs = function()
-              return vim.api.nvim_list_bufs()
-            end
-          }
-        },
-        { name = "path" },
-      }
+      { name = "path" },
+    }
     )
-  }
-
-  local autopairs = require("plugins.autopairs")
-
-  autopairs.on_confirm_done(cmp)
+  })
 end
 
 return M

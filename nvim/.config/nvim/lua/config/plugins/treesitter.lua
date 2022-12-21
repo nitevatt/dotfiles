@@ -1,17 +1,10 @@
-local M = {}
-
-M.setup = function(use)
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-end
+local M = {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+}
 
 M.config = function()
-  local ok, treesitter = pcall(require, "nvim-treesitter.configs")
-
-  if not ok then
-    return
-  end
-
-  treesitter.setup {
+  require("nvim-treesitter.configs").setup({
     ensure_installed = {
       "css",
       "help",
@@ -29,7 +22,7 @@ M.config = function()
     highlight = {
       enable = true
     }
-  }
+  })
 end
 
 return M

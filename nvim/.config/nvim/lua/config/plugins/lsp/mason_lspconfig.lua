@@ -1,14 +1,7 @@
 local M = {}
 
-local lspconfig = require("plugins.lsp.lspconfig")
-local typescript = require("plugins.lsp.typescript")
-
-M.setup = function(use)
-  use "williamboman/mason-lspconfig.nvim"
-
-  lspconfig.setup(use)
-  typescript.setup(use)
-end
+local lspconfig = require("config.plugins.lsp.lspconfig")
+local typescript = require("config.plugins.lsp.typescript")
 
 local group = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -43,23 +36,7 @@ local function on_attach(_, bufnr)
   })
 end
 
-local function get_capabilities()
-  local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-
-  if not ok then
-    return
-  end
-
-  return cmp_nvim_lsp.default_capabilities()
-end
-
-M.config = function()
-  local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-
-  if not ok then
-    return
-  end
-
+M.setup = function(mason_lspconfig)
   mason_lspconfig.setup {
     ensure_installed = {
       "cssls",
@@ -72,17 +49,17 @@ M.config = function()
     }
   }
 
-  local capabilities = get_capabilities()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   mason_lspconfig.setup_handlers {
     function(server_name)
-      lspconfig.config(server_name, {
+      lspconfig.setup(server_name, {
         capabilities = capabilities,
         on_attach = on_attach
       })
     end,
     ["sumneko_lua"] = function()
-      lspconfig.config("sumneko_lua", {
+      lspconfig.setup("sumneko_lua", {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -95,7 +72,7 @@ M.config = function()
       })
     end,
     ["tsserver"] = function()
-      typescript.config(capabilities, on_attach)
+      typescript.setup(capabilities, on_attach)
     end
   }
 end
