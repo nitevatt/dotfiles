@@ -12,7 +12,7 @@ M.config = function()
 
   vim.keymap.set("n", "<leader>fe", function() builtin.buffers({ sort_lastused = true, sort_mru = true }) end, {})
   vim.keymap.set("n", "<leader>ff", builtin.git_files, {})
-  vim.keymap.set("n", "<leader>fa", builtin.find_files({ hidden = true }), {})
+  vim.keymap.set("n", "<leader>fa", function() builtin.find_files({ hidden = true }) end, {})
   vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, {})
   vim.keymap.set("n", "<leader>fw", builtin.live_grep, {})
 
