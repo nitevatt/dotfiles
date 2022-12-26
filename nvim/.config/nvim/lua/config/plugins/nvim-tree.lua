@@ -19,8 +19,8 @@ M.config = function()
     }
   })
 
-  vim.keymap.set("n", "<c-n>", "<cmd>NvimTreeToggle<cr>", {})
-  vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeFindFile<cr>", {})
+  vim.keymap.set("n", "<c-n>", vim.cmd.NvimTreeToggle, {})
+  vim.keymap.set("n", "<leader>n", vim.cmd.NvimTreeFindFile, {})
 end
 
 return M
