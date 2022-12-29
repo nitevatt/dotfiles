@@ -8,6 +8,7 @@ vim.opt.clipboard:append { "unnamedplus" }
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.cursorline = true
 vim.opt.expandtab = true
+vim.opt.guifont = "SauceCodePro_NF:h11"
 vim.opt.ignorecase = true
 vim.opt.mouse = "a"
 vim.opt.number = true
