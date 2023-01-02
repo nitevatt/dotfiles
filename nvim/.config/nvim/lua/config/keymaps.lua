@@ -9,5 +9,6 @@ vim.keymap.set("n", "<c-k>", "<c-w>k", {})
 vim.keymap.set("n", "<c-l>", "<c-w>l", {})
 
 vim.keymap.set("v", "<leader>d", "y'>p", {})
+vim.keymap.set("v", "<leader>p", '"_dp', {})
 vim.keymap.set("v", "<", "<gv", {})
 vim.keymap.set("v", ">", ">gv", {})
