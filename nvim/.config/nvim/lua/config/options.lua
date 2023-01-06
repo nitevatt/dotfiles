@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.opt.autoindent = true
-vim.opt.clipboard:append { "unnamedplus" }
+vim.opt.clipboard = "unnamed"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.cursorline = true
 vim.opt.expandtab = true
