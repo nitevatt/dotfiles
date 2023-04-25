@@ -1,23 +1,11 @@
-local ok, typescript = pcall(require, "typescript")
+local typescript = require "typescript"
 
-if not ok then
-  return
+typescript.setup {}
+
+local format_all = function()
+  typescript.actions.removeUnused { sync = true }
+  typescript.actions.organizeImports { sync = true }
+  vim.lsp.buf.format { async = true }
 end
 
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
-
-typescript.setup {
-  server = {
-    on_attach = function(client, bufnr)
-      vim.keymap.set("n", "<leader>;", function()
-        typescript.actions.removeUnused { sync = true }
-        typescript.actions.organizeImports { sync = true }
-        vim.lsp.buf.format { async = true }
-      end)
-
-      on_attach(client, bufnr)
-    end,
-    capabilities = capabilities,
-  },
-}
+vim.keymap.set("n", "<leader>fk", format_all, {})
