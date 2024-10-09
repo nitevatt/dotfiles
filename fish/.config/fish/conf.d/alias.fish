@@ -27,4 +27,4 @@ alias nung "nun --global"
 alias t 'tmux new -s (basename "$PWD")'
 alias ta "tmux a"
 alias v "nvim"
-alias vn 'v /mnt/c/Users/karol.zielinski/OneDrive\ -\ giorgiglobal/Dokumenty/Notes.md'
+alias vn "v $NOTES_PATH"
