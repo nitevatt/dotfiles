@@ -1,4 +1,12 @@
-if not vim.g.vscode then
+if vim.g.vscode then
+  vim.api.nvim_create_autocmd("CursorHold", {
+    group = vim.api.nvim_create_augroup("MyCursorHoldGroup", { clear = true }),
+    pattern = "*",
+    callback = function()
+      vim.cmd("silent! mode")
+    end
+  })
+else
   vim.g.loaded_netrw = 1
   vim.g.loaded_netrwPlugin = 1
 
