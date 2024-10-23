@@ -17,4 +17,8 @@ return {
     ft = "markdown",
   },
 
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
+  },
 }
