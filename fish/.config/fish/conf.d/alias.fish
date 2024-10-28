@@ -11,7 +11,7 @@ alias gwa "gw add --guess-remote"
 alias gwl "gw list"
 alias gwr "gw remove"
 alias lg "lazygit"
-alias llm "ollama run llama3.1"
+alias llm "ollama run llama3.1 --nowordwrap"
 alias ncu 'npx npm-check-updates@latest --interactive --format group'
 alias ni "npm install"
 alias nig "ni --global"
@@ -27,5 +27,7 @@ alias nung "nun --global"
 alias nvim-chad 'NVIM_APPNAME=NvChad nvim'
 alias t 'tmux new -s (basename "$PWD")'
 alias ta "tmux a"
-alias v "nvim"
+alias v 'nvim'
+alias vc 'nvim-chad'
+alias vcn "vc $NOTES_PATH"
 alias vn "v $NOTES_PATH"
