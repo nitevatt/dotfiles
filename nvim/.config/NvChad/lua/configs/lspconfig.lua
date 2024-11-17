@@ -7,7 +7,6 @@ local lspconfig = require "lspconfig"
 local servers = {
   "css_variables",
   "cssls",
-  "cssmodules_ls",
   "cucumber_language_server",
   "docker_compose_language_service",
   "dockerls",
