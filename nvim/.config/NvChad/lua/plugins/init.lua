@@ -21,4 +21,15 @@ return {
     "nvim-tree/nvim-tree.lua",
     opts = require "configs.nvimtree",
   },
+
+  {
+    "nvimtools/none-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
+    config = function ()
+      require "configs.nonels"
+    end
+  },
 }
