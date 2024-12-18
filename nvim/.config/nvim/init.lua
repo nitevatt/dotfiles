@@ -137,7 +137,15 @@ require("lazy").setup {
     {
       "neovim/nvim-lspconfig",
       config = function()
+        local function organize_imports()
+          vim.lsp.buf.execute_command {
+            command = "_typescript.organizeImports",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+          }
+        end
+
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+        vim.keymap.set("n", "<leader>fo", organize_imports)
       end,
     },
     {
