@@ -12,3 +12,5 @@ map(
   require("telescope.builtin").lsp_document_symbols,
   { desc = "Lists LSP document symbols in the current buffer" }
 )
+
+map("v", "<leader>d", "yPgv", { desc = "Duplicate lines up" })
