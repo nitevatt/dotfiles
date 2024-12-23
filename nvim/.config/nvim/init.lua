@@ -96,6 +96,11 @@ require("lazy").setup {
               quit_on_open = true,
             },
           },
+          view = {
+            width = {
+              min = 30
+            }
+          }
         }
 
         vim.keymap.set("n", "<c-n>", vim.cmd.NvimTreeFindFile)
