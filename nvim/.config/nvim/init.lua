@@ -64,9 +64,6 @@ vim.keymap.set("n", "<s-tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "<leader>x", vim.cmd.bdelete)
 vim.keymap.set("v", "<leader>d", "yPgv")
 
-vim.keymap.set("i", "<Tab>", [[pumvisible() ? "<C-n>" : "<Tab>"]], { expr = true })
-vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "<C-p>" : "<S-Tab>"]], { expr = true })
-
 require("lazy").setup {
   spec = {
     {
@@ -140,9 +137,16 @@ require("lazy").setup {
       config = true,
     },
     {
-      "echasnovski/mini.completion",
+      "saghen/blink.cmp",
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+      },
       version = "*",
-      config = true,
+      opts = {
+        keymap = {
+          preset = "default",
+        },
+      },
     },
     {
       "neovim/nvim-lspconfig",
@@ -227,9 +231,13 @@ require("lazy").setup {
         require("mason").setup()
         require("mason-lspconfig").setup()
 
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
+
         require("mason-lspconfig").setup_handlers {
           function(server_name)
-            require("lspconfig")[server_name].setup {}
+            require("lspconfig")[server_name].setup {
+              capabilities = capabilities,
+            }
           end,
         }
       end,
