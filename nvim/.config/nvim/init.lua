@@ -103,7 +103,7 @@ require("lazy").setup {
           }
         }
 
-        vim.keymap.set("n", "<c-n>", vim.cmd.NvimTreeFindFile)
+        vim.keymap.set("n", "<c-n>", vim.cmd.NvimTreeFindFileToggle)
       end,
     },
     {
