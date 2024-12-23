@@ -166,10 +166,7 @@ require("lazy").setup {
         }
 
         vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-          group = vim.api.nvim_create_augroup(
-            "CustomNvimLint",
-            { clear = true }
-          ),
+          group = vim.api.nvim_create_augroup("CustomNvimLint", { clear = true }),
           pattern = "*",
           callback = function()
             require("lint").try_lint()
