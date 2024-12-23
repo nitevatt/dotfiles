@@ -253,6 +253,10 @@ require("lazy").setup {
         vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions)
       end,
     },
+    {
+      "lewis6991/gitsigns.nvim",
+      config = true,
+    },
   },
   checker = {
     enabled = true,
