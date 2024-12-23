@@ -87,7 +87,7 @@ require("lazy").setup {
     {
       "nvim-tree/nvim-tree.lua",
       dependencies = {
-        "nvim-tree/nvim-web-devicons"
+        "nvim-tree/nvim-web-devicons",
       },
       config = function()
         require("nvim-tree").setup {
@@ -98,9 +98,9 @@ require("lazy").setup {
           },
           view = {
             width = {
-              min = 30
-            }
-          }
+              min = 30,
+            },
+          },
         }
 
         vim.keymap.set("n", "<c-n>", vim.cmd.NvimTreeFindFileToggle)
