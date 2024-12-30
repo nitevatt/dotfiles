@@ -176,7 +176,6 @@ require("lazy").setup {
           group = vim.api.nvim_create_augroup("CustomNvimLint", { clear = true }),
           pattern = "*",
           callback = function()
-            print(vim.fn.filereadable "eslint.config.js")
             if vim.fn.filereadable "eslint.config.js" ~= 0 then
               require("lint").try_lint()
             end
