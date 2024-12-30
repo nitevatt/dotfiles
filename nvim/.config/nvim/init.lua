@@ -148,6 +148,11 @@ require("lazy").setup {
             auto_show = true,
             auto_show_delay_ms = 200,
           },
+          menu = {
+            auto_show = function(ctx)
+              return ctx.mode ~= "cmdline"
+            end,
+          },
         },
         keymap = {
           preset = "enter",
