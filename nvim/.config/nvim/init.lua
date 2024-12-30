@@ -144,7 +144,7 @@ require("lazy").setup {
       version = "*",
       opts = {
         keymap = {
-          preset = "default",
+          preset = "enter",
         },
       },
     },
