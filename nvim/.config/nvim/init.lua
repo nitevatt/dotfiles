@@ -67,19 +67,24 @@ vim.keymap.set("v", "<leader>d", "yPgv")
 require("lazy").setup {
   spec = {
     {
-      "catppuccin/nvim",
-      name = "catppuccin",
-      priority = 1000,
+      "rose-pine/neovim",
+      name = "rose-pine",
       config = function()
+        require("rose-pine").setup {
+          styles = {
+            italic = false,
+          },
+        }
+
+        vim.cmd.colorscheme "rose-pine"
+
         local function set_colorscheme()
           if vim.o.background == "dark" then
-            vim.cmd.colorscheme "catppuccin-latte"
+            vim.o.background = "light"
           else
-            vim.cmd.colorscheme "catppuccin-frappe"
+            vim.o.background = "dark"
           end
         end
-
-        set_colorscheme()
 
         vim.keymap.set("n", "<leader>th", set_colorscheme)
       end,
