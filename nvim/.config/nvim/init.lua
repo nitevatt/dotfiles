@@ -176,6 +176,7 @@ require("lazy").setup {
 
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
         vim.keymap.set("n", "<leader>fo", organize_imports)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
       end,
     },
     {
