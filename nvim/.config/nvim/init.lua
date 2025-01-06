@@ -285,7 +285,4 @@ require("lazy").setup {
       config = true,
     },
   },
-  checker = {
-    enabled = true,
-  },
 }
