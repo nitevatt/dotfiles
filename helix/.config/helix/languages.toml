@@ -17,13 +17,16 @@ auto-format = true
 name = "javascript"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
 
 [[language]]
 name = "typescript"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
 
 [[language]]
 name = "tsx"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
