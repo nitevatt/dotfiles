@@ -16,3 +16,9 @@ render = true
 [editor.inline-diagnostics]
 cursor-line = "hint"
 other-lines = "hint"
+
+[keys.normal.g]
+x = ":buffer-close"
+
+[keys.normal.space]
+t = { d = ":theme rose_pine", l = ":theme rose_pine_dawn" }
