@@ -235,6 +235,9 @@ require("lazy").setup {
             typescriptreact = {
               require "formatter.defaults.prettier",
             },
+            yaml = {
+              require "formatter.defaults.prettier",
+            },
           },
         }
 
