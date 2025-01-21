@@ -59,9 +59,10 @@ vim.schedule(function()
 end)
 
 vim.keymap.set("n", "<esc>", vim.cmd.nohl)
-vim.keymap.set("n", "<tab>", vim.cmd.bnext)
-vim.keymap.set("n", "<s-tab>", vim.cmd.bprevious)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>x", vim.cmd.bdelete)
+vim.keymap.set("n", "<s-tab>", vim.cmd.bprevious)
+vim.keymap.set("n", "<tab>", vim.cmd.bnext)
 vim.keymap.set("v", "<leader>d", "yPgv")
 
 require("lazy").setup {
