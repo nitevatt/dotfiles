@@ -124,7 +124,7 @@ require("lazy").setup {
       config = true,
     },
     {
-      "nvim-lualine/lualine.nvim",
+      "echasnovski/mini.statusline",
       config = true,
     },
     {
