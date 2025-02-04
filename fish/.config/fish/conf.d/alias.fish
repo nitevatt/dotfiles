@@ -32,6 +32,6 @@ alias vc 'nvim-chad'
 alias vcn "vc $NOTES_PATH"
 alias vn "v $NOTES_PATH"
 
-function git-ai-commit
-    curl -X POST http://localhost:11434/api/generate -d '{ "model": "llama3.2:3b", "prompt": "Generate a concise conventional commit message based on the following changes:\n'(git diff --cached | jq -Rs @json | jq -r . | string trim -c '"')'\nFormat: <type>(<scope>): <description>\nAll lowercase", "stream": false, "keep_alive": 0 }' | jq -r .response
+function node-ai-commit
+    npx tsx@latest /home/dev/workspace/git-ai-commit/index.ts
 end
