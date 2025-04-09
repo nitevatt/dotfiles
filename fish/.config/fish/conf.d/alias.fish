@@ -11,8 +11,9 @@ alias gwa "gw add --guess-remote"
 alias gwl "gw list"
 alias gwr "gw remove"
 alias lg "lazygit"
-alias llm "ollama run llama3.1 --nowordwrap"
+alias llm "ollama run llama3.2:3b --nowordwrap"
 alias ncu 'npx npm-check-updates@latest --interactive --format group'
+alias ncusemver 'ncu --target semver'
 alias ni "npm install"
 alias nig "ni --global"
 alias no "npm outdated"
