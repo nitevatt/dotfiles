@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "TextChanged" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   callback = function()
     require("lint").try_lint()
   end,
