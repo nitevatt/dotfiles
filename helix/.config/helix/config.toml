@@ -1,4 +1,4 @@
-theme = "rose_pine"
+theme = "kanagawa"
 
 [editor]
 bufferline = "always"
@@ -21,4 +21,4 @@ other-lines = "hint"
 x = ":buffer-close"
 
 [keys.normal.space]
-t = { d = ":theme rose_pine", l = ":theme rose_pine_dawn" }
+t = { d = ":theme kanagawa", l = ":theme catppuccin_latte" }
